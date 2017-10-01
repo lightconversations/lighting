@@ -1,6 +1,6 @@
 """
-This file converts a Comma separated value spreadsheet of CUES into a text 
-file that can then be imported to a lighting desk. The original code was created by David Orlando. 
+This file converts a Comma separated value spreadsheet of CUES into a text
+file that can then be imported to a lighting desk. The original code was created by David Orlando.
 Tlaloc Lopez-Watermann added file name choice, export file name choice and cue list select.
 """
 
@@ -10,16 +10,16 @@ cuelist = raw_input("Which cue list would you like to add this to? ")
 
 
 CSV=open(name).readlines()
+ 
 
- 
 patch=open(nameout,'w') #Export file
-CUE=['Ident 3:0',"\n",'Clear Cues', "\n",'Manufacturer ETC',"\n","Console Eos","\n",'$CueList'+cuelist, "\n"]
- 
+CUE=['Ident 3:0',"\n",'Clear Cues', "\n",'Manufacturer ETC',"\n","Console Eos","\n",'$CueList'+' '+cuelist, "\n"]
+
 #print(CSV[0])
- 
+
 titles=CSV[0]
 titles=titles.split(',')
- 
+
 cue_index=titles.index("CUE")
 ut_index=titles.index("UT")
 dt_index=titles.index("DT")
@@ -27,11 +27,13 @@ text_index=titles.index("Label")
 f_index=titles.index("F/H")
 b_index=titles.index("B")
 pt_index=titles.index("PT")
- 
+note_index=titles.index("Note")
+scene_index=titles.index("Scene")
+
 CSV.remove(CSV[0])
  
  
- 
+
 for x in CSV:
     line=x.split(',',)
     #print(line)
@@ -43,7 +45,7 @@ for x in CSV:
     q_num+=" 1"
     CUE.append(q_num)
     CUE.append("\n")
- 
+    
     #PT
     if line[pt_index] != '':
         if line[pt_index] != '1':
@@ -53,7 +55,7 @@ for x in CSV:
         q_pt+=line[pt_index]
         CUE.append(q_pt)
         CUE.append("\n")
-     
+    
     #UT
     if line[ut_index] != '':
         q_ut="Up "
@@ -65,8 +67,8 @@ for x in CSV:
         q_ut+=" 0 0 1"
         CUE.append(q_ut)
         CUE.append("\n")
- 
      
+    
     #DT
     if line[dt_index]!= '':
         q_dt="Down "
@@ -78,11 +80,11 @@ for x in CSV:
         q_dt+=" 0 0 1"
         CUE.append(q_dt)
         CUE.append("\n")
-         
+    
     #chans
 #    CUE.append("Chan 999 0")
-#    CUE.append("\n")      
-     
+#    CUE.append("\n")
+    
     #f
     if line[f_index] != '':
         f_h=line[f_index]
@@ -96,30 +98,39 @@ for x in CSV:
             q_f+=f_h[1:]
             CUE.append(q_f)
             CUE.append("\n")
-             
+    
     #text
     if line[text_index] != '':
         text_dt="Text "
         text_dt+=line[text_index]
         CUE.append(text_dt)
         CUE.append("\n")
-         
+    
     #Block
     if line[b_index] == 'B':
         q_b='$$Block'
         CUE.append(q_b)
         CUE.append("\n")
-             
+    
+    #Note
+    if line[note_index] != '':
+        text_text='$$CueNotes '
+        text_text+=line[note_index]
+        CUE.append(text_text)
+        CUE.append("\n")
+    
+    #scene
+    if line[scene_index] != '':
+        scene_text='$$scenetext '
+        scene_text+=line[scene_index]
+        CUE.append(scene_text)
+        CUE.append("\n")
  
- 
- 
- 
- 
- 
+    
     CUE.append("\n")
-#  
-CUE.append("EndData") 
-#  
+#
+CUE.append("EndData")
+#
 for x in CUE:
     patch.write(x)       #writes group to file
     print(x)
@@ -131,21 +142,21 @@ patch.close()
  
  
  
- 
+
 #README FILE
 README=open('README.txt','w')
 README.write("""
-This file converts a Comma separated value spreadsheet of CUES into a text 
-file that can then be imported to a lighting desk. The original code was created by David Orlando. 
+This file converts a Comma separated value spreadsheet of CUES into a text
+file that can then be imported to a lighting desk. The original code was created by David Orlando.
 Tlaloc Lopez-Watermann added file name choice, export file name choice and cue list select.
 
 ONLY USE ASCII IMPORT WITH NEW SHOWFILES
 ASCII import empites all the data of the current file and repopulates it ONLY with the data in the .txt file
- 
+
 the only information contained here is group information
- 
+
 in EOS, this import will also create presets with identical information as the groups with all channels at 100%
- 
+
 in EOS to import:
 -File>Import>USITT ASCII
 """)
