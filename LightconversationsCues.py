@@ -162,8 +162,12 @@ Note for the notes
 Scene for scenes
 'please know that scenes are associated with cues and should not have their own row'. 
 
-ONLY USE ASCII IMPORT WITH NEW SHOWFILES
-ASCII import empites all the data of the current file and repopulates it ONLY with the data in the .txt file
+!!!!!!!!!!ONLY USE ASCII IMPORT WITH NEW SHOWFILES!!!!!!!!!!!!!!!!
+
+ASCII import empties all the data of the current file and repopulates it ONLY with the data in the .txt file
+
+!!!!!!!!!!ONLY USE ASCII IMPORT WITH NEW SHOWFILES!!!!!!!!!!!!!!!!
+
 
 the only information contained here is group information
 
