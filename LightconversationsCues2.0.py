@@ -167,7 +167,9 @@ Scene for scenes
 
 !!!!!!!!!!ONLY USE ASCII IMPORT WITH NEW SHOWFILES!!!!!!!!!!!!!!!!
 
-ASCII import empties all the data of the current file and repopulates it ONLY with the data in the .txt file
+ASCII import empties all the data of the current file and repopulates it ONLY with the data in the .txt file.
+I good way to use this is to import the ASCII to new (merging) show file in an offline editor, then Merge the cues to a show on the
+console. When merging make sure to MERGE ONLY THE CUES. The reason for doing it this way is so the patch at the theatre is not lost.
 
 !!!!!!!!!!ONLY USE ASCII IMPORT WITH NEW SHOWFILES!!!!!!!!!!!!!!!!
 
