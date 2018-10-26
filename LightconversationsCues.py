@@ -18,7 +18,7 @@ if path != '':
 else:
     CSV=open(name).readlines()
 
-if path != '':
+if outpath != '':
     patch=open(outpath+"/"+nameout,'w') #Export file
 else:
     patch=open(nameout,'w')
