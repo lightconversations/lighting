@@ -24,6 +24,7 @@ else:
     patch=open(nameout,'w')
 
 
+
 CUE=['Ident 3:0',"\n",'Clear Cues', "\n",'Manufacturer ETC',"\n","Console Eos","\n",'$CueList'+' '+cuelist,"\n"]
      
 #print(CSV[0])
