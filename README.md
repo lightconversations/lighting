@@ -9,8 +9,7 @@ file that can then be imported to a lighting desk. The original code was created
 Tlaloc Lopez-Watermann added file name choice, export file name choice and cue list select.
 
 Please use the following label headers for you CSV file:
-
-CUE for the cue number
+#CUE/# for the cue number
 UT for the Up Time
 DT for the Down Time
 Label for the cue label
