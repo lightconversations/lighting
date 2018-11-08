@@ -20,9 +20,10 @@ Please use the following label headers for you CSV file:
 <br />Scene for scenes
 please know that scenes are associated with cues and should not have their own row'.
 
-!!!!!!!!!!ONLY USE ASCII IMPORT WITH NEW SHOWFILES!!!!!!!!!!!!!!!!
+!!!!!!!!!!ONLY USE ASCII IMPORT WITH NEW SHOWFILES!!!!!!!!!!!!!!!!<br />
 ASCII import empties all the data of the current file and repopulates it ONLY with the data in the .txt file.
-A good practice is to use this is to import the ASCII to new (merging) show file in an offline editor, making it possible to MERGE the cues to a show on a console with a patch, macros, other cue lists etc. When merging make sure to MERGE ONLY THE CUES. The reason for doing it this way is so the patch at the theatre is not lost. When running the LightConversationsCues.py you will be able to choose the cue list number. This number will follow the merge into your show file.
-!!!!!!!!!!ONLY USE ASCII IMPORT WITH NEW SHOWFILES!!!!!!!!!!!!!!!!
-
+<br />A good practice is to use this is to import the ASCII to new (merging) show file in an offline editor, making it possible to MERGE the cues to a show on a console with a patch, macros, other cue lists etc. 
+<br />When merging make sure to MERGE ONLY THE CUES. The reason for doing it this way is so the patch at the theatre is not lost. When running the LightConversationsCues.py you will be able to choose the cue list number. This number will follow the merge into your show file.
+<br />!!!!!!!!!!ONLY USE ASCII IMPORT WITH NEW SHOWFILES!!!!!!!!!!!!!!!!
+<br />
 In EOS to import use -File>Import>USITT ASCII
