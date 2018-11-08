@@ -24,4 +24,3 @@ console. When merging make sure to MERGE ONLY THE CUES. The reason for doing it 
 !!!!!!!!!!ONLY USE ASCII IMPORT WITH NEW SHOWFILES!!!!!!!!!!!!!!!!
 in EOS to import:
 -File>Import>USITT ASCII
-"""
