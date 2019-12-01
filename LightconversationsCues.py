@@ -123,6 +123,10 @@ for x in CSV:
         q_b='$$Block'
         CUE.append(q_b)
         CUE.append("\n")
+    if line[b_index] == 'I':
+        q_b='$$IntBlock'
+        CUE.append(q_b)
+        CUE.append("\n")
 
     #Note
     if line[note_index] != '':
@@ -161,9 +165,6 @@ README.write("""
 This file converts a Comma separated value spreadsheet of CUES into a text
 file that can then be imported to a lighting desk. The original code was created by David Orlando.
 Tlaloc Lopez-Watermann added file name choice, export file name choice and cue list select.
-
-For a tutorial on how to best utilize this code please see this video on YouTube. https://www.youtube.com/watch?v=ApFyayLdHcA
-
 
 Please use the following label headers for you CSV file:
 CUE for the cue number
