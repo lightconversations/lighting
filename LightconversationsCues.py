@@ -123,6 +123,10 @@ for x in CSV:
         q_b='$$Block'
         CUE.append(q_b)
         CUE.append("\n")
+    if line[b_index] == 'I':
+        q_b='$$IntBlock'
+        CUE.append(q_b)
+        CUE.append("\n")
 
     #Note
     if line[note_index] != '':
