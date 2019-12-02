@@ -189,3 +189,51 @@ in EOS to import:
 -File>Import>USITT ASCII
 """)
 README.close()
+
+
+#!!!!EOS ASCII COMMANDS FOR REFERENCE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#! Cues
+#! $CueList n      All subsequent cues are in cuelist n
+#!                 Cue lists can have a TEXT secondary and the following flags:
+#! $$IntensityMaster
+#! $$Independent
+#! $$HTP           HTP
+#! $$Assert        Assert
+#! $$SoloMode      Solo Mode
+#! $$Master        Slider mode, see comment, default=Master
+#! $$BackFrom1st   see comment
+#! $$GoFromLast    see comment
+#! $$Stomp         see comment
+#! $$Exclude       see comment
+#! $$Control       number, fader mode, min, max, buttons 1-3 id/arg
+#! 
+#! $Cue:           All cues not in the first cue list and those
+#!                 with more than one digit after the decimal point
+#! $$Text          Cue/Part label
+#! $$Assert        Assert
+#! $$Block         Block
+#! $$IntBlock      IntBlock
+#! 
+#! The following cue times use this format:  Fade time, Delay time,
+#!                 Use default fadetime (1=true, 0=false, M=manual),
+#!                 Use default delay time (1=true, 0=false)
+#! $$TimeUp        Up times
+#! $$TimeDown      Down times
+#! $$TimePosition  Focus times
+#! $$TimeColor     Color times
+#! $$TimeGraphic   Beam times
+#! 
+#! $$Rate          Rate (100 = normal)
+#! $$Follow        Auto-follow time counting from previous cue start
+#! $$Hang          Auto-follow time counting from previous cue completion
+#! $$Action        Stop/Execute, Target
+#! $$Action        UDP/MIDI, String
+#! $$Curve         Curve (0.01 .. 9999.99)
+#! $$Link list/cue Link to or from a cue not in the first list or to
+#!                 one with more than one digit after the decimal point
+#! $$CueNotes      Cue Notes
+#! $$SceneText     Scene Text
+#! $$SceneEnd      Scene End flag
+#! 
+#! $$ChanMove      Intensity moves
+#! Chan            Tracked levels
