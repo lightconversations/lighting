@@ -3,23 +3,29 @@ This file converts a Comma separated value spreadsheet of CUES into a text
 file that can then be imported to a lighting desk. The original code was created by David Orlando.
 Tlaloc Lopez-Watermann added file name choice, export file name choice and cue list select.
 """
-
-
+from pathlib import Path
+Standart_arten = config.Projectarten
+root = Path("C:/Users/Jonas Dautel/Projekte")
+archive_root = root / "zzz_Archiv"
+backup_root = root / "zzz_Backup"
+config_root = root / "zzz_Config"
+type_root = config_root / "1.Projecttypes"
+app = QApplication(sys.argv)
 
 
 name = raw_input("What's the csv filename that you want to convert to Eos_ASCII?--this should be a .csv file-- ")
-path = raw_input("Where is the file?--If no path is entered then file needs to be in folder containing program-- ")
+path = Path(raw_input("Where is the file?--If no path is entered then file needs to be in folder containing program-- "))
 nameout = raw_input("What should your new filename be?--This should be a .txt file-- ")
-outpath = raw_input("Where do you want the new file to save?--If no path is entered then file will save in folder containing program--")
+outpath = Path(raw_input("Where do you want the new file to save?--If no path is entered then file will save in folder containing program--"))
 cuelist = raw_input("Which cue list would you like to add this to? ")
 
 if path != '':
-    CSV=open(path+"/"+name).readlines()
+    CSV=open(path / name).readlines()
 else:
     CSV=open(name).readlines()
 
 if outpath != '':
-    patch=open(outpath+"/"+nameout,'w') #Export file
+    patch=open(outpath / nameout,'w') #Export file
 else:
     patch=open(nameout,'w')
 
