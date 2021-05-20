@@ -12,12 +12,12 @@ outpath = Path(raw_input("Where do you want the new file to save?--If no path is
 cuelist = raw_input("Which cue list would you like to add this to? ")
 
 if path != '':
-    CSV=open(path / name).readlines()
+    CSV=open(str(path / name)).readlines()
 else:
     CSV=open(name).readlines()
 
 if outpath != '':
-    patch=open(outpath / nameout,'w') #Export file
+    patch=open(str(outpath / nameout),'w') #Export file
 else:
     patch=open(nameout,'w')
 
