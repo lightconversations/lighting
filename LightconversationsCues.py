@@ -3,25 +3,92 @@ This file converts a Comma separated value spreadsheet of CUES into a text
 file that can then be imported to a lighting desk. The original code was created by David Orlando.
 Tlaloc Lopez-Watermann added file name choice, export file name choice and cue list select.
 """
-from pathlib import Path
+import tkinter as tk
+from tkinter import ttk
+from tkinter import *
+from tkinter import filedialog as fd
+from tkinter.messagebox import showinfo
 
-NAME = input("What's the csv filename that you want to convert Eos?")
-PATH = Path(input("Where is the file?--If no path is entered then file needs to be in folder containing program-- "))
-NAMEOUT = input("What should your new filename be? ")
-OUTPATH = Path(input("Where do you want the new file to save?"))
+filename = ""
+fileout= ""
+q_list= ""
+root = tk.Tk()
+root.title('Tkinter Open File Dialog')
+root.geometry('300x300')
+root.resizable(True,True)
+#q_list = Entry(root, width=50)
+#q_list.pack()
+#q_list.insert(0, "enter the cuelist")
+#label = tk.Label(0,text= fileout)
+#label.pack(side="bottom")
+
+#select the file to convert.
+
+def select_file():
+    global filename
+    filetypes = (
+    ('text files', '*.csv'),
+    ('All files', '*.*'))
+    
+    filename = fd.askopenfilename(
+    title='Open a file',
+    initialdir='/',
+    filetypes=filetypes)
+    
+    
+#Set the file and location to save to.
+
+def save_file():
+        global fileout
+        filetypes = (
+        ('text files', '*.txt'),
+        ('All files', '*.*'))
+        
+        
+        fileout = fd.asksaveasfilename(
+        title='name to save your text file to for the EOS',
+        initialdir='/',
+        filetypes=filetypes)
+       # Creates label and shows it
+        
+        
+        
+#def cue_list_e():
+#        listLabel = "Cue List #:" + q_list()
+#        myLabel = Label(root, text=listLabel())
+ #       myLabel.pack()
+
+
+# open button
+open_button = ttk.Button(
+    root,
+    text='Open a File',
+    command=select_file)
+
+open_button.pack(expand=True)
+
+
+# open button
+save_button = ttk.Button(
+    root,
+    text='save name and location',
+    command=save_file)
+save_button.pack(expand=True)
+
+
+#q_button = ttk.Button(
+#   root, 
+#    text="enter", 
+#    command=cue_list_e)
+#q_button.pack(expand=True)
+
+#("Which cue list would you like to add this to? ")
+         
+
+
 CUELIST = input("Which cue list would you like to add this to? ")
-
-if PATH != '':
-    CSV=open(str(PATH / NAME)).readlines()
-else:
-    CSV=open(NAME).readlines()
-
-if OUTPATH != '':
-    PATCH=open(str(OUTPATH / NAMEOUT),'w') #Export file
-else:
-    PATCH=open(NAMEOUT,'w')
-
-
+CSV=open(str(filename)).readlines()
+PATCH = open(fileout,'w')
 
 CUE=['Ident 3:0',"\n",'Clear Cues', "\n",'Manufacturer ETC',"\n","Console Eos","\n",'$CueList'+' '+CUELIST,"\n"]
 #print(CSV[0])
@@ -138,7 +205,7 @@ for x in CSV:
         CUE.append(scene_text)
         CUE.append("\n")
 
-
+#end append
     CUE.append("\n")
 #
 CUE.append("EndData")
@@ -148,6 +215,7 @@ for x in CUE:
     print(x)
 PATCH.close()
 
+    
 #README FILE
 README=open('README.txt','w')
 README.write("""
